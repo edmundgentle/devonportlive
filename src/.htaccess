@@ -1,0 +1,34 @@
+RewriteEngine On
+RewriteOptions Inherit
+
+#static pages
+RewriteRule ^(index.php)?$ /pages/index.php?%{QUERY_STRING}
+RewriteRule ^about(/?)$ /pages/about.php?%{QUERY_STRING}
+RewriteRule ^about/terms(/?)$ /pages/terms.php?%{QUERY_STRING}
+RewriteRule ^about/contact(/?)$ /pages/contact.php?%{QUERY_STRING}
+RewriteRule ^login(/?)$ /pages/login.php?%{QUERY_STRING}
+RewriteRule ^recover(/?)$ /pages/recover.php?%{QUERY_STRING}
+RewriteRule ^login/forgot(/?)$ /pages/forgot.php?%{QUERY_STRING}
+RewriteRule ^account(/?)$ /pages/account.php?%{QUERY_STRING}
+RewriteRule ^register(/?)$ /pages/register.php?%{QUERY_STRING}
+RewriteRule ^logout(/?)$ /pages/logout.php?%{QUERY_STRING}
+RewriteRule ^business(/?)$ /pages/directory.php?t=business&%{QUERY_STRING}
+RewriteRule ^service(/?)$ /pages/directory.php?t=service&%{QUERY_STRING}
+RewriteRule ^community(/?)$ /pages/directory.php?t=community&%{QUERY_STRING}
+RewriteRule ^mypages(/?)$ /pages/directory.php?t=my&%{QUERY_STRING}
+RewriteRule ^(business|service|community)/([A-Za-z0-9-_]+)(/?)$ /pages/page.php?t=$1&slug=$2&%{QUERY_STRING}
+RewriteRule ^(business|service|community)/([A-Za-z0-9-_]+)/manage(/?)$ /pages/edit.php?t=$1&slug=$2&%{QUERY_STRING}
+RewriteRule ^(business|service|community)/([A-Za-z0-9-_]+)/addevent(/?)$ /pages/add_event.php?page_slug=$2&%{QUERY_STRING}
+RewriteRule ^(business|service|community)/([A-Za-z0-9-_]+)/addevent/recurring(/?)$ /pages/add_r_event.php?page_slug=$2&%{QUERY_STRING}
+RewriteRule ^search(/?)$ /pages/directory.php?t=search&%{QUERY_STRING}
+RewriteRule ^events(/?)$ /pages/events.php?%{QUERY_STRING}
+RewriteRule ^events/([A-Za-z0-9-_]+)(/?)$ /pages/event.php?slug=$1&%{QUERY_STRING}
+RewriteRule ^add(/?)$ /pages/add_page.php?%{QUERY_STRING}
+RewriteRule ^add/(business|service|community)(/?)$ /pages/add_page.php?t=$1&%{QUERY_STRING}
+RewriteRule ^u/([0-9A-Za-z]{2})([0-9A-Za-z]+)((_[a-z])?).([a-zA-Z]+)$ /uploads/$1/$2$3.$5
+RewriteRule ^admin(/?)$ /admins/index.php?%{QUERY_STRING}
+RewriteRule ^admin/pages(/?)$ /admins/pages.php?%{QUERY_STRING}
+RewriteRule ^admin/updates(/?)$ /admins/updates.php?%{QUERY_STRING}
+RewriteRule ^admin/events(/?)$ /admins/events.php?%{QUERY_STRING}
+RewriteRule ^admin/messages(/?)$ /admins/messages.php?%{QUERY_STRING}
+RewriteRule ^admin/users(/?)$ /admins/users.php?%{QUERY_STRING}
